@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text-to-Speech Web Tool</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Theme toggle in top-right -->
+        <div class="theme-toggle">
+            <button id="themeIcon" onclick="toggleTheme()" title="Toggle Theme">🌞</button>
+        </div>
+
+        <h1>🔊 Text-to-Speech Tool</h1>
+
+        <!-- Text input -->
+        <div class="editor-container">
+            <div class="line-numbers" id="lineNumbers"></div>
+            <textarea id="text" oninput="updateLines()" onscroll="syncScroll()" placeholder="Type here..."></textarea>
+        </div>
+
+        <!-- Voice selection -->
+        <div>
+            <label for="voiceSelect">Voice</label>
+            <select id="voiceSelect"></select>
+        </div>
+
+        <!-- Rate and pitch sliders -->
+        <div class="row">
+            <div>
+                <label for="rate">Rate: <span id="rateValue">1</span></label>
+                <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1" />
+            </div>
+            <div>
+                <label for="pitch">Pitch: <span id="pitchValue">1</span></label>
+                <input type="range" id="pitch" min="0" max="2" step="0.1" value="1" />
+            </div>
+        </div>
+
+        <!-- Playback controls -->
+        <div class="controls">
+            <button onclick="speakText()">▶️ Play</button>
+            <button onclick="stopSpeaking()">⏹️ Stop</button>
+            <button onclick="clearText()">🧹 Clear</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
