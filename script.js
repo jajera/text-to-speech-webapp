@@ -8,7 +8,7 @@ const pitchValue = document.getElementById("pitchValue");
 // Theme toggle and auto-detect
 function toggleTheme() {
   const isDark = body.classList.toggle("dark");
-  document.getElementById("themeIcon").textContent = isDark ? "🌙" : "🌞";
+  document.getElementById("themeIcon").textContent = isDark ? "🌞" : "🌙";
   localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
@@ -93,7 +93,8 @@ window.onload = () => {
   const savedTheme = localStorage.getItem("theme");
   const useDark = savedTheme === "dark" || (!savedTheme && prefersDark);
   body.classList.toggle("dark", useDark);
-  document.getElementById("themeIcon").textContent = useDark ? "🌙" : "🌞";
+  // Show the icon for the opposite theme so the action is clear to the user
+  document.getElementById("themeIcon").textContent = useDark ? "🌞" : "🌙";
 
   populateVoices();
   updateLines();
