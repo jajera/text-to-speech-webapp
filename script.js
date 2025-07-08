@@ -93,7 +93,6 @@ window.onload = () => {
   const savedTheme = localStorage.getItem("theme");
   const useDark = savedTheme === "dark" || (!savedTheme && prefersDark);
   body.classList.toggle("dark", useDark);
-  // Show the icon for the opposite theme so the action is clear to the user
   document.getElementById("themeIcon").textContent = useDark ? "🌞" : "🌙";
 
   populateVoices();
